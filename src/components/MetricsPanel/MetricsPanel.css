@@ -1,0 +1,27 @@
+.metrics-panel {
+  background: linear-gradient(145deg, #0f0f1e 0%, #0d1628 100%);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(53, 51, 205, 0.4);
+}
+
+.metrics-panel h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

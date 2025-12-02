@@ -1,0 +1,14 @@
+.visualization-panel {
+  background: linear-gradient(145deg, #0f0f1e 0%, #0d1628 100%);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(53, 51, 205, 0.4);
+}
+
+.visualization-panel h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+}

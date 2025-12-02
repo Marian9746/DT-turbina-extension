@@ -1,0 +1,104 @@
+version: '3.8'
+
+services:
+  # ========================================
+  # MQTT Broker - Mosquitto
+  # ========================================
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: dt-mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883"   # MQTT
+      - "9001:9001"   # WebSocket MQTT
+    volumes:
+      - ./docker/mosquitto/config:/mosquitto/config
+      - ./docker/mosquitto/data:/mosquitto/data
+      - ./docker/mosquitto/log:/mosquitto/log
+    networks:
+      - digital-twin-network
+
+  # ========================================
+  # IoT Simulator - Generador de datos
+  # ========================================
+  simulator:
+    build:
+      context: ./backend/simulator
+      dockerfile: Dockerfile
+    container_name: dt-simulator
+    restart: unless-stopped
+    environment:
+      - MQTT_BROKER=mqtt://mosquitto:1883
+      - MQTT_TOPIC=windturbine/sensors
+      - PUBLISH_INTERVAL=1000
+    depends_on:
+      - mosquitto
+    networks:
+      - digital-twin-network
+
+  # ========================================
+  # Facade Service - MQTT to WebSocket
+  # ========================================
+  facade:
+    build:
+      context: ./backend/facade
+      dockerfile: Dockerfile
+    container_name: dt-facade
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - MQTT_BROKER=mqtt://mosquitto:1883
+      - MQTT_TOPIC=windturbine/sensors
+    depends_on:
+      - mosquitto
+    networks:
+      - digital-twin-network
+
+  # ========================================
+  # Node-RED - Flow-based programming
+  # ========================================
+  node-red:
+    build:
+      context: ./backend/node-red
+      dockerfile: Dockerfile
+    container_name: dt-node-red
+    restart: unless-stopped
+    ports:
+      - "1880:1880"
+    environment:
+      - TZ=Europe/Madrid
+    volumes:
+      - node-red-data:/data
+    depends_on:
+      - mosquitto
+    networks:
+      - digital-twin-network
+
+  # ========================================
+  # Frontend - React + Vite
+  # ========================================
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dt-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_WEBSOCKET_URL=ws://localhost:8080
+      - VITE_API_URL=http://localhost:8080
+    depends_on:
+      - facade
+    networks:
+      - digital-twin-network
+
+volumes:
+  node-red-data:
+    driver: local
+
+networks:
+  digital-twin-network:
+    driver: bridge

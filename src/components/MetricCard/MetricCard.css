@@ -1,0 +1,81 @@
+.metric-card {
+  background: linear-gradient(135deg, #2a2a3e 0%, #1e1e2f 100%);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #e8e8e8;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(53, 51, 205, 0.2);
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(53, 51, 205, 0.6);
+  box-shadow: 0 8px 20px rgba(53, 51, 205, 0.3);
+}
+
+.metric-card.wind {
+  border-color: rgba(100, 150, 200, 0.3);
+}
+
+.metric-card.wind:hover {
+  border-color: rgba(100, 150, 200, 0.6);
+  box-shadow: 0 8px 20px rgba(100, 150, 200, 0.3);
+}
+
+.metric-card.rpm {
+  border-color: rgba(80, 120, 180, 0.3);
+}
+
+.metric-card.rpm:hover {
+  border-color: rgba(80, 120, 180, 0.6);
+  box-shadow: 0 8px 20px rgba(80, 120, 180, 0.3);
+}
+
+.metric-card.power {
+  border-color: rgba(200, 140, 80, 0.3);
+}
+
+.metric-card.power:hover {
+  border-color: rgba(200, 140, 80, 0.6);
+  box-shadow: 0 8px 20px rgba(200, 140, 80, 0.3);
+}
+
+.metric-card.temp {
+  border-color: rgba(180, 90, 90, 0.3);
+}
+
+.metric-card.temp:hover {
+  border-color: rgba(180, 90, 90, 0.6);
+  box-shadow: 0 8px 20px rgba(180, 90, 90, 0.3);
+}
+
+.metric-icon {
+  font-size: 2.5rem;
+}
+
+.metric-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin-bottom: 5px;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline;
+}
+
+.metric-unit {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-left: 5px;
+}

@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #4a47d8 100%);
+  color: #e8e8e8;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Main Content Grid */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Charts Section */
+.charts-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Explanation Section */
+.explanation-section {
+  background: linear-gradient(145deg, rgb(177, 174, 214) 0%, #e8e8e8 100%);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(53, 51, 205, 0.3);
+  margin-bottom: 30px;
+}
+
+.explanation-section h2 {
+  color: #3533cd;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.explanation-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.explanation-card {
+  background: rgba(26, 26, 46, 0.95);
+  border-radius: 10px;
+  padding: 20px;
+  border-left: 4px solid #3533cd;
+  border: 1px solid rgba(53, 51, 205, 0.4);
+}
+
+.explanation-card h3 {
+  color: #b8b8ff;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.explanation-card p {
+  color: #d0d0d0;
+  margin-bottom: 10px;
+}
+
+.explanation-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.explanation-card ul li {
+  padding: 8px 0;
+  color: #d0d0d0;
+  border-bottom: 1px solid rgba(53, 51, 205, 0.3);
+}
+
+.explanation-card ul li:last-child {
+  border-bottom: none;
+}
+
+.explanation-card.highlight {
+  grid-column: 1 / -1;
+  background: rgba(26, 26, 46, 0.95);
+  border: 1px solid rgba(53, 51, 205, 0.6);
+}
+
+.note {
+  background: rgba(200, 140, 80, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  border-left: 4px solid #c88c50;
+  border: 1px solid rgba(200, 140, 80, 0.4);
+  color: #e8e8e8;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-content,
+  .charts-section,
+  .explanation-content {
+    grid-template-columns: 1fr;
+  }
+
+  .explanation-card.highlight {
+    grid-column: 1;
+  }
+}

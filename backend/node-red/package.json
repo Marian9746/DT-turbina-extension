@@ -1,0 +1,9 @@
+{
+  "name": "node-red-docker",
+  "description": "Node-RED Docker container for Digital Twin",
+  "version": "1.0.0",
+  "dependencies": {
+    "node-red-dashboard": "^3.6.0",
+    "node-red-contrib-mqtt-broker": "^0.2.6"
+  }
+}

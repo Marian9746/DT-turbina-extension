@@ -1,0 +1,56 @@
+.status-bar {
+  background: rgba(53, 51, 205, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 4px solid #3533cd;
+  border: 1px solid rgba(53, 51, 205, 0.3);
+}
+
+.status-label {
+  font-weight: 600;
+  color: #b8b8b8;
+}
+
+.status-value {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #e8e8e8;
+}
+
+.timestamp {
+  color: #888888;
+  font-size: 0.9rem;
+}
+
+.connection-indicator {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.connection-indicator.connected {
+  color: #4caf50;
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.connection-indicator.disconnected {
+  color: #f44336;
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

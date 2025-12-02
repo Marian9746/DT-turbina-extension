@@ -1,0 +1,52 @@
+.controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: 1px solid rgba(53, 51, 205, 0.5);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3533cd 0%, #2a28a0 100%);
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(53, 51, 205, 0.4);
+  border-color: #3533cd;
+}
+
+.btn-power {
+  background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+  border-color: rgba(196, 30, 58, 0.5);
+}
+
+.btn-power:hover {
+  box-shadow: 0 5px 20px rgba(196, 30, 58, 0.4);
+}
+
+.btn-power-off {
+  background: linear-gradient(135deg, #2d7a3e 0%, #1e5a2e 100%);
+  border-color: rgba(45, 122, 62, 0.5);
+}
+
+.btn-power-off:hover {
+  box-shadow: 0 5px 20px rgba(45, 122, 62, 0.4);
+}
+
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
