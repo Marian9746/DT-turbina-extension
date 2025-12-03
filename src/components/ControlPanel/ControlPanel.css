@@ -1,52 +1,47 @@
 .controls {
   display: flex;
-  gap: 10px;
+  gap: 16px;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 20px;
+  align-items: center;
 }
 
-.btn {
-  padding: 12px 24px;
-  font-size: 1rem;
-  border: 1px solid rgba(53, 51, 205, 0.5);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 600;
-  background: linear-gradient(135deg, #3533cd 0%, #2a28a0 100%);
-  color: white;
+.control-button {
+  padding: 12px 24px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  border: 1px solid rgba(25, 118, 210, 0.5) !important;
+  color: #1976d2 !important;
+  background-color: transparent !important;
+  min-width: 160px !important;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(53, 51, 205, 0.4);
-  border-color: #3533cd;
+.control-button:hover {
+  background-color: rgba(25, 118, 210, 0.04) !important;
+  border-color: #1976d2 !important;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.2) !important;
 }
 
-.btn-power {
-  background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
-  border-color: rgba(196, 30, 58, 0.5);
+.control-button:active {
+  background-color: rgba(25, 118, 210, 0.08) !important;
 }
 
-.btn-power:hover {
-  box-shadow: 0 5px 20px rgba(196, 30, 58, 0.4);
+.control-button .MuiButton-startIcon {
+  margin-right: 8px !important;
 }
 
-.btn-power-off {
-  background: linear-gradient(135deg, #2d7a3e 0%, #1e5a2e 100%);
-  border-color: rgba(45, 122, 62, 0.5);
-}
-
-.btn-power-off:hover {
-  box-shadow: 0 5px 20px rgba(45, 122, 62, 0.4);
-}
-
+/* Responsive design */
 @media (max-width: 768px) {
   .controls {
     flex-direction: column;
+    gap: 12px;
   }
 
-  .btn {
-    width: 100%;
+  .control-button {
+    width: 100% !important;
+    min-width: unset !important;
   }
 }

@@ -1,7 +1,8 @@
 import './MetricCard.css';
+import { ReactNode } from 'react';
 
 interface MetricCardProps {
-  icon: string;
+  icon: ReactNode;
   label: string;
   value: number;
   unit: string;

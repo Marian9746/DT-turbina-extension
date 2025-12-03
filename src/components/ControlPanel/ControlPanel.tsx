@@ -1,4 +1,6 @@
 import './ControlPanel.css';
+import { Button, Tooltip } from '@mui/material';
+import { PlayArrow, Pause, Power, PowerOff } from '@mui/icons-material';
 
 interface ControlPanelProps {
   isRotating: boolean;
@@ -15,15 +17,27 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
 }) => {
   return (
     <div className="controls">
-      <button onClick={onToggleRotation} className="btn">
-        {isRotating ? '⏸️ Pausar Rotación' : '▶️ Reanudar Rotación'}
-      </button>
-      <button
-        onClick={onTogglePower}
-        className={`btn ${isPoweredOn ? 'btn-power' : 'btn-power-off'}`}
-      >
-        {isPoweredOn ? '⚡ Apagar Turbina' : '🔌 Encender Turbina'}
-      </button>
+      <Tooltip title={isRotating ? "Pausar rotación" : "Reanudar rotación"}>
+        <Button
+          variant="outlined"
+          onClick={onToggleRotation}
+          startIcon={isRotating ? <Pause /> : <PlayArrow />}
+          className="control-button rotation-button"
+        >
+          {isRotating ? 'Pausar Rotación' : 'Reanudar Rotación'}
+        </Button>
+      </Tooltip>
+      
+      <Tooltip title={isPoweredOn ? "Apagar turbina" : "Encender turbina"}>
+        <Button
+          variant="outlined"
+          onClick={onTogglePower}
+          startIcon={isPoweredOn ? <PowerOff /> : <Power />}
+          className="control-button power-button"
+        >
+          {isPoweredOn ? 'Apagar Turbina' : 'Encender Turbina'}
+        </Button>
+      </Tooltip>
     </div>
   );
 };

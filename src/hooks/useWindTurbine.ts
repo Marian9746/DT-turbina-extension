@@ -11,7 +11,7 @@ export const useWindTurbine = () => {
     rpm: 0,
     power: 0,
     temperature: 20,
-    status: '🟢 Operacional',
+    status: 'Operacional',
   });
 
   const [dataHistory, setDataHistory] = useState<DataHistory>({
