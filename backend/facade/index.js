@@ -97,7 +97,7 @@ function initWebSocketServer() {
 /**
  * Inicializa el cliente MQTT
  */
-function initMqttClient(wss) {
+function initMqttClient() {
   console.log('🔌 Conectando al broker MQTT:', MQTT_BROKER);
 
   const client = mqtt.connect(MQTT_BROKER, {
