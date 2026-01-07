@@ -1,5 +1,4 @@
 import './StatusBar.css';
-import { CheckCircle } from '@mui/icons-material';
 
 interface StatusBarProps {
   status: string;
